@@ -1,0 +1,291 @@
+<html lang='en'>
+
+<head>
+	<meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<title>rock ,paper and scissor</title>
+	
+	<style>
+	
+		*{
+			text-align: center;
+		}
+	</style>
+	
+	</head>
+
+<body>
+	
+<h1>Rock, Paper, Scissors</h1>
+    <p>Select either rock, paper, or scissors and see if you can beat the computer!</p>
+
+    <p><strong>Remember:</strong> “Rock breaks scissors, scissors cuts paper, paper covers rock.” </p>	
+	
+	
+	<div id="score">
+	
+	
+	
+	</div>
+	
+	<div id="selection">
+	
+	
+	
+	</div>
+	
+	<div id="win">
+	
+	
+	
+	
+	</div>
+	
+	<!-- el type(button) msh mohema 5ales --> 
+	
+	<button  type='button' >Rock</button>
+	<button  type='button'>Paper</button>
+	<button  type='button'>Scissors</button>
+	
+	<script>
+		
+		
+	//	var score = document.querySelector('.score');
+		//var select = documemt.querySelector('.selection');
+		var buttons = document.querySelectorAll('button');
+		var winscores=[0,0]; 
+		
+	var i;
+		
+		 for ( i = 0 ; i < buttons.length ; i++){
+			 
+			 buttons[i].addEventListener('click' , playgame);
+		 } 
+
+	
+	function playgame(e){ 
+		
+			
+		
+	
+		// score.innerHTML="karim";
+	
+		 var playerSelection = e.target.innerText;
+		
+		
+	var computerSelection = Math.random();
+		
+		 if (computerSelection < .34){
+                computerSelection = 'Rock';
+            } else if (computerSelection <= .67){
+                computerSelection = 'Paper';
+            } else {
+                computerSelection = 'Scissors';
+            }
+		
+		
+		
+	//	score.innerHTML="player" + '[' + winscores[0] + ']' + "computer" + '[' + winscores[1] + ']';
+		
+	//	select.innerHTML="player <strong>" + playerSelection + "</strong> computer <strong>" + computerSelection + "</strong> <br>";
+		
+		//  var result = checkwin;
+		
+	 var result = checkwin(playerSelection , computerSelection);
+		
+		
+		
+		
+		if(result === 'Player'){
+			
+			// result += '' + 'wins';
+		result = "<h4 style='color:green';> Player Wins! </h4>"
+			winscores[0]++;
+		}
+		
+		
+		 if(result === 'Computer'){
+			
+		//	result += '' + 'wins';
+			 
+			 result = "<h4 style='color:red';> Computer Wins! </h4>"
+			winscores[1]++;
+		}
+		
+		if(result === 'Draw'){
+			
+			result = "<h4 style='color:grey';> it's a tie </h4>";
+		}
+		
+		
+	
+		window.score.innerHTML = 'Player: [ ' + winscores[0] + ' ] Computer: [ ' + winscores[1] + ' ]';
+
+            //output player and computer's selections
+           // messenger('Player: <strong>' + playerSelection + '</strong> Computer: <strong>' + computerSelection + '</strong><br>' + result);
+			
+			                                                //    Orrrr
+			
+			window.selection.innerHTML="player: <strong>" + playerSelection + "</strong> computer: <strong>" + computerSelection + "</strong><br>";
+		
+		
+		
+		
+	window.win.innerHTML = result;
+		
+		
+		
+		}
+		
+		
+	  function checkwin(player, computer){
+            if (player === computer){
+                return 'Draw';
+            }
+
+            if (player === 'Rock'){
+                if(computer === 'Paper'){
+                    return 'Computer';
+                } 
+				else {
+                    return 'Player';
+                }
+            }
+
+            if (player === 'Paper'){
+                if (computer === 'Scissors'){
+                    return 'Computer';
+                } 
+				else {
+                    return 'Player';
+                }
+            }
+
+            if (player === 'Scissors'){
+                if (computer === 'Rock'){
+                    return 'Computer';
+                }
+				else {
+                    return 'Player';
+                }
+            }
+			
+			
+        }
+		 
+		
+		
+	/*	function checkwin() {
+			
+			if(playerSelection === computerSelection ) {  
+			
+			result = "<h4> it's a tie </h4>";
+			
+				}
+			
+		else 	if(playerSelection === 'Rock'){
+				
+				if(computerSelection === 'Paper'){
+					
+					result = "<h4> computer wins </h4>";
+					
+					winscores[1]++;
+				}
+				
+			}
+			
+			
+		else	if(playerSelection === 'Paper'){
+				
+				if(computerSelection === 'Scissors'){
+					
+					result = "<h4> computer wins </h4>";
+					
+					winscores[1]++;
+				}
+				
+			}
+			
+		else 	if(playerSelection === 'Scissors'){
+				
+				if(computerSelection === 'Rock'){
+					
+					result = "<h4> computer wins </h4>";
+					
+					winscores[1]++;
+				}
+				
+			}
+			
+			else {
+				
+				result = "<h4> player wins </h4>";
+				
+				winscores[0]++;
+			}
+			
+		}
+		
+		
+		*/
+		
+		
+		
+	/*	function checkwin(playerSelection , computerSelection) {
+			
+			if(playerSelection === computerSelection){
+				
+				return 'Draw';
+			}
+			
+			else if(playerSelection === "Rock" && computerSelection ==="Paper"){
+				
+				return 'Computer';
+				
+			}
+			else if(playerselection ==="Paper" && computerSelection ==="Scissors"){
+				
+				return 'Computer';
+			}
+			else if(playerSelection ==="Scissors" && computerSelection ==="Rock"){
+				
+				return 'Computer';
+			}
+			
+			else {
+				return 'Player';
+			} 
+			
+		}
+		
+		
+		*/
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+	
+	
+	
+	</body>
+
+
+
+
+
+
+
+
+
+
+</html>
